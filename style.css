@@ -34,7 +34,10 @@
 @media print {
 	:root { --accent-color: gray; }
 
-	nav { display: none}
+	nav,
+	footer a {
+		display: none;
+	}
 
 	article { break-before: page; }
 
@@ -42,14 +45,6 @@
 	blockquote {
 		break-inside: avoid;
 	}
-
-	body > header,
-	footer {
-		--foreground-color: white;
-		--background-color: black;
-	}
-
-	footer a { display: none }
 }
 
 
@@ -61,8 +56,6 @@ body {
 }
 
 body > header {
-	background-color: var(--foreground-color);
-	color: var(--background-color);
 	display: flex;
 	flex-direction: column;
 	gap: var(--gutter);
@@ -70,7 +63,12 @@ body > header {
 	justify-content: center;
 }
 
-
+@media screen {
+	body > header {
+		background-color: var(--foreground-color);
+		color: var(--background-color);
+	}
+}
 
 nav {
 	background-color: var(--accent-color);
@@ -149,4 +147,11 @@ footer {
 	display: flex;
 	gap: var(--gutter);
 	justify-content: space-between;
+}
+
+@media screen {
+	footer {
+		background-color: var(--foreground-color);
+		color: var(--background-color);
+	}
 }
