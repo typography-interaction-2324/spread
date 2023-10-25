@@ -15,6 +15,10 @@
 	--border-width: 4px;
 }
 
+@media (min-width: 600px) {
+	:root { --typography-base: 18px; }
+}
+
 @media (min-width: 800px) {
 	:root {
 		--typography-base: 20px;
