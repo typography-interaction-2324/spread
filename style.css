@@ -1,4 +1,3 @@
-/* Local font files */
 @font-face {
 	src: url('fonts/IBMPlexSerif-Regular.ttf');
 	font-family: 'Plex Serif';
@@ -13,10 +12,26 @@
 }
 
 :root {
-	--typography--base: 16px;
+	--typography-base: 16px;
+
+	--typography-h1: calc(4 * var(--typography-base));
+	--typography-h2: calc(2 * var(--typography-base));
+
+	--accent-color: magenta;
 }
 
 body {
 	font-family: 'Plex Serif', serif;
-	font-size: var(--typography--base);
+	font-size: var(--typography-base);
 }
+
+h1 {
+	font-size: var(--typography-h1);
+	line-height: 1;
+}
+
+h2 {
+	font-size: var(--typography-h2);
+}
+
+a { color: var(--accent-color) }
