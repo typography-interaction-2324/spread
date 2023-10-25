@@ -142,8 +142,6 @@ footer {
 
 footer {
 	align-items: baseline;
-	background-color: var(--foreground-color);
-	color: var(--background-color);
 	display: flex;
 	gap: var(--gutter);
 	justify-content: space-between;
