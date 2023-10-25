@@ -1,24 +1,117 @@
 :root {
 	--typography-base: 16px;
 
-	--typography-h1: calc(4 * var(--typography-base));
+	--typography-h3: calc(1.5 * var(--typography-base));
 	--typography-h2: calc(2 * var(--typography-base));
+	--typography-h1: calc(4 * var(--typography-base));
 
-	--accent-color: magenta;
+	--gutter: var(--typography-base);
+
+	--foreground-color: black;
+	--background-color: white;
+	--accent-color: gold;
+	--fade-opacity: 50%;
+
+	--border-width: 4px;
 }
+
+@media (min-width: 800px) {
+	:root {
+		--typography-base: 20px;
+
+		--typography-h3: calc(2 * var(--typography-base));
+		--typography-h2: calc(3 * var(--typography-base));
+		--typography-h1: calc(6 * var(--typography-base));
+
+		--gutter: calc(2 * var(--typography-base));
+	}
+}
+
+
 
 body {
 	font-family: sans-serif;
 	font-size: var(--typography-base);
-}
-
-h1 {
-	font-size: var(--typography-h1);
 	line-height: 1;
 }
 
-h2 {
-	font-size: var(--typography-h2);
+body > header {
+	background-color: var(--foreground-color);
+	color: var(--background-color);
+	display: flex;
+	flex-direction: column;
+	gap: var(--gutter);
+	height: 85vh;
+	justify-content: center;
 }
 
-a { color: var(--accent-color) }
+nav ul {
+	display: flex;
+	gap: var(--gutter);
+}
+
+h1 { font-size: var(--typography-h1); }
+h2 { font-size: var(--typography-h2); }
+
+h3,
+h1 + p {
+	font-size: var(--typography-h3);
+}
+
+h3:not(:first-child) { margin-top: var(--gutter); }
+
+h1 + p,
+h2 + p {
+	opacity: var(--fade-opacity);
+}
+
+em { font-style: italic; }
+
+a {
+	font-weight: bold;
+	color: var(--accent-color);
+}
+
+p {
+	max-width: 60ch;
+	line-height: 1.5;
+}
+
+p a {
+	text-decoration: underline;
+}
+
+section, article header {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gutter);
+}
+
+header,
+section,
+footer {
+	padding: var(--gutter);
+}
+
+article {
+	margin-bottom: 25vh;
+}
+
+blockquote {
+	border-left: var(--border-width) solid var(--accent-color);
+	font-style: italic;
+	padding-left: calc(var(--gutter) / 2);
+	font-family: serif;
+}
+
+article,
+footer {
+	border-top: var(--border-width) solid var(--foreground-color);
+}
+
+footer {
+	align-items: baseline;
+	display: flex;
+	gap: var(--gutter);
+	justify-content: space-between;
+}
