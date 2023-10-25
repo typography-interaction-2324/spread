@@ -32,9 +32,24 @@
 }
 
 @media print {
-	:root {
-		--accent-color: gray;
+	:root { --accent-color: gray; }
+
+	nav { display: none}
+
+	article { break-before: page; }
+
+	p,
+	blockquote {
+		break-inside: avoid;
 	}
+
+	body > header,
+	footer {
+		--foreground-color: white;
+		--background-color: black;
+	}
+
+	footer a { display: none }
 }
 
 
@@ -55,14 +70,6 @@ body > header {
 	justify-content: center;
 }
 
-@media print {
-	body > header {
-		color: var(--foreground-color);
-		background-color: var(--background-color);
-	}
-
-	nav { display: none}
-}
 
 
 nav {
